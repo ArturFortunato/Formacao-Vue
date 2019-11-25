@@ -1,24 +1,39 @@
 <template>
   <div id="app">
+		<!--Básico -->
 		<img alt="Vue logo" src="./assets/logo.png">
-		<h1>Framework favorita: {{ favorite }}</h1>
-		<!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+		<HelloWorld msg="Welcome to Your Vue.js App"/>
+
+		<!-- Info no componente -->
 		<Formacao />
+
+		<!-- props/emit -->
+		<h1>Framework favorita: {{ favorite }}</h1>
 		<div v-for="formacao in formacoes" :key="formacao.formador" class="red">
 			<FormacaoBlank :object="formacao" @chooseFavorite="setFavorite" />
 		</div>
+
+		<!-- programmatic -->
+		<p>
+			<router-link to="/formacao_vue">Formacao vue</router-link>
+		</p>	
+		<p>
+			<router-link to="/formacao_react">Formacao react</router-link>
+		</p>
+		<router-view></router-view>
+		
 	</div>
 </template>
 
 <script>
-//import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue'
 import Formacao from './components/Formacao.vue'
 import FormacaoBlank from './components/FormacaoBlank.vue'
 
 export default {
 	name: 'app',
 	components: {
-		//HelloWorld,
+		HelloWorld,
 		Formacao,
 		FormacaoBlank
 	},

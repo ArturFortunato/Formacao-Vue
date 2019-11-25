@@ -1,28 +1,79 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+		<img alt="Vue logo" src="./assets/logo.png">
+		<h1>Framework favorita: {{ favorite }}</h1>
+		<!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+		<Formacao />
+		<div v-for="formacao in formacoes" :key="formacao.formador" class="red">
+			<FormacaoBlank :object="formacao" @chooseFavorite="setFavorite" />
+		</div>
+	</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+//import HelloWorld from './components/HelloWorld.vue'
+import Formacao from './components/Formacao.vue'
+import FormacaoBlank from './components/FormacaoBlank.vue'
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
+	name: 'app',
+	components: {
+		//HelloWorld,
+		Formacao,
+		FormacaoBlank
+	},
+	data() {
+		return {
+			favorite: '',
+			formacoes: {
+				formacao_vue: {
+					framework: 'Vue',
+					formador: 'Artur Fortunato',
+					atendees: [
+						'Francisco Serralheiro',
+						'José Ribeiro',
+						'Luís Ferreira',
+						'Tomás Prego',
+						'Tomás Silva',
+						'Alexandre Ferreira (mas atrasado ou nem isso...)',
+						'António Ramalho',
+						'Diansambo Masembo',
+						'Martim Nabais',
+						'Miguel Mira',
+						'Tiago Franco'
+					]
+				},
+				formacao_react: {
+					framework: 'React',
+					formador: 'David Martins',
+					atendees: [
+						'Francisco Serralheiro',
+						'José Ribeiro',
+						'Francisco Pires',
+						'Tomás Prego',
+						'Tomás Silva',
+						'Alexandre Ferreira (mas atrasado ou nem isso...)'
+					]
+				}
+			}
+		}
+	},
+	methods: {
+		setFavorite(new_favorite) {
+			this.favorite = new_favorite
+		}
+	}
 }
 </script>
 
-<style>
+<style scoped>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+	text-align: center;
+	margin-top: 60px;
+}
+
+.red
+{
+	border: 1px solid red;
 }
 </style>

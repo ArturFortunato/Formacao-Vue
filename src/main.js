@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import App from './App.vue'
-import FormacaoVue from './components/FormacaoVue.vue'
-import FormacaoReact from './components/FormacaoReact.vue'
+import Formacoes from './components/Formacoes.vue'
+import Membros from './components/Membros.vue'
 
 Vue.config.productionTip = false
 
@@ -13,12 +13,12 @@ const router = new Router({
 	mode: 'history',
 	routes: [
 		{
-			path: '/formacao_vue',
-			component: FormacaoVue
+			path: '/formacoes',
+			component: Formacoes
 		},
 		{
-			path: '/formacao_react',
-			component: FormacaoReact
+			path: '/membros',
+			component: Membros
 		}
 	]
 })

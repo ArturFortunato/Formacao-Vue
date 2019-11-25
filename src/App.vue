@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+	<div id="app">
 		<!--Básico -->
 		<img alt="Vue logo" src="./assets/logo.png">
 		<HelloWorld msg="Welcome to Your Vue.js App"/>
@@ -15,10 +15,10 @@
 
 		<!-- programmatic -->
 		<p>
-			<router-link to="/formacao_vue">Formacao vue</router-link>
+			<router-link to="/formacoes">Formacoes</router-link>
 		</p>	
 		<p>
-			<router-link to="/formacao_react">Formacao react</router-link>
+			<router-link to="/membros">Membros</router-link>
 		</p>
 		<router-view></router-view>
 		
